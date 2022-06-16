@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script>
+        fetch ("http://localhost:8080/jogos").then((data)=>{
+    return data.json();
+}).then((objectData)=>{
+    console.log(objectData);
+    let tableData="";
+    objectData.map((values)=>{
+        tableData+=
+        `<tr>
+            <td>${values.titulo}</td>
+            <td>${values.desenvolvedor}</td>
+            <td>${values.publicador}</td>
+            <td>${values.genero}</td>
+            <td>${values.regiao}</td>
+        </tr>`;
+        
+    });
+    document.getElementById("gamedata").innerHTML=tableData;
+}).catch((err)=>{
+    console.log(err);
+})
+    </script>
+    <title>Portfólio</title>    
+</head>
+<body>
+    <header class="grid-container-element-1">
+        <div class="grid-child-element-purple">
+            <a href="index.html">Início</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="curriculo.html">Currículo</a>
+            <a href="jogos.html">Jogos</a>
+            <a href="contato.html">Contato</a>
+        </div>
+        <div class="grid-child-element-green">
+            <a href="https://facebook.com/davidmateusreis" target="_blank"><img src="imgs/facebook.png" alt="Facebook"></a>
+            <a href="https://linkedin.com/davidmateusreis" target="_blank"><img src="imgs/linkedin.png" alt="LinkedIn"></a>
+            <a href="https://instagram.com/davidmateusreis" target="_blank"><img src="imgs/instagram.png" alt="Instagram"></a>
+            <a href="https://youtube.com/davidmateusreis" target="_blank"><img src="imgs/youtube.png" alt="YouTube"></a>
+            <a href="https://twitter.com/davidmateusreis" target="_blank"><img src="imgs/twitter.png" alt="Twitter"></a>   
+        </div>
+    </header>
+    <section>
+        <div class="grid-child-element-cyan">
+            <h1>Jogos</h1>
+            <a href="novo.html" class="">Adicionar um jogo</a>
+            <h2>Todos os Jogos</h2>
+            <table border="1" class="gamelist">
+                <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Desenvolvedor</th>
+                    <th>Publicador</th>
+                    <th>Gênero</th>
+                    <th>Região</th>
+                </tr>
+                </thead>
+                <tbody id="gamedata">
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <footer>
+        <p>&copy;2022 <a href="https://github.com/davidmateusreis" target="_blank">David</a></p>
+    </footer>
+</body>
+</html>

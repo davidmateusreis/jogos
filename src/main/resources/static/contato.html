@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfólio</title>
+</head>
+<body>
+    <header class="grid-container-element-1">
+        <div class="grid-child-element-purple">
+            <a href="index.html">Início</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="curriculo.html">Currículo</a>
+            <a href="jogos.html">Jogos</a>
+            <a href="contato.html">Contato</a>
+        </div>
+        <div class="grid-child-element-green">
+            <a href="https://facebook.com/davidmateusreis" target="_blank"><img src="imgs/facebook.png" alt="Facebook"></a>
+            <a href="https://linkedin.com/davidmateusreis" target="_blank"><img src="imgs/linkedin.png" alt="LinkedIn"></a>
+            <a href="https://instagram.com/davidmateusreis" target="_blank"><img src="imgs/instagram.png" alt="Instagram"></a>
+            <a href="https://youtube.com/davidmateusreis" target="_blank"><img src="imgs/youtube.png" alt="YouTube"></a>
+            <a href="https://twitter.com/davidmateusreis" target="_blank"><img src="imgs/twitter.png" alt="Twitter"></a>   
+        </div>
+    </header>
+    <section class="grid-container-element-2">
+        <div class="grid-child-element-gray">
+            <h1>Entre em contato</h1>
+        </div>
+        <div class="grid-child-element-white">
+            <form action="https://formsubmit.co/davidmateusreis@gmail.com" method="POST" class="form">
+                <label for="name" id="nome">Nome *</label>
+                <input type="text" name="name" id="nome" placeholder="Insira seu nome" required>
+                <label for="email" id="email">Email *</label>
+                <input type="email" name="email" id="email" placeholder="Insira seu email" required>
+                <label for="assunto" id="assunto">Assunto</label>
+                <input type="text" name="assunto" id="assunto" placeholder="Insira o assunto">
+                <label for="mensagem" id="mensagem">Mensagem</label>
+                <!--<input type="text" name="mensagem" id="mensagem" placeholder="Digite sua mensagem aqui">-->
+                <textarea name="mensagem" id="mensagem" cols="60" rows="10" placeholder="Digite sua mensagem aqui"></textarea>
+                <input type="hidden" name="_next" value="https://davidmateusreis.github.io/projeto-portfolio/agradecimento.html">
+                <button type="submit" class="botao" id="botao">Enviar</button>
+           </form>
+        </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy;2022 <a href="https://github.com/davidmateusreis" target="_blank">David</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
