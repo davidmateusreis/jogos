@@ -1,9 +1,8 @@
 package com.david.games.controller;
 
 import java.util.List;
-import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,38 +14,38 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.david.games.model.Jogo;
-import com.david.games.repository.JogoRepository;
+import com.david.games.service.JogoService;
 
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/jogos")
 public class JogoController {
-    
-    @Autowired
-    private JogoRepository jogoRepository;
+
+    private JogoService jogoService;
+
+    public JogoController(JogoService jogoService) {
+        this.jogoService = jogoService;
+    }
 
     @GetMapping
-    public List<Jogo> listarJogos() {
-        return (List<Jogo>) jogoRepository.findAll();
+    public ResponseEntity<List<Jogo>> listarJogos() {
+        return ResponseEntity.status(200).body(jogoService.listarJogos());
     }
 
     @PostMapping
-    public Jogo criarJogo(@RequestBody Jogo jogo) {
-        Jogo jogoNovo = jogoRepository.save(jogo);
-        return jogoNovo;
+    public ResponseEntity<Jogo> criarJogo(@RequestBody Jogo jogo) {
+        return ResponseEntity.status(201).body(jogoService.criarJogo(jogo));
     }
 
     @PutMapping
-    public Jogo editarJogo(@RequestBody Jogo jogo) {
-        Jogo jogoNovo = jogoRepository.save(jogo);
-        return jogoNovo;
+    public ResponseEntity<Jogo> editarJogo(@RequestBody Jogo jogo) {
+        return ResponseEntity.status(200).body(jogoService.editarJogo(jogo));
     }
 
     @DeleteMapping("/{id}")
-    public Optional<Jogo> excluirJogo(@PathVariable Integer id) {
-        Optional<Jogo> jogo = jogoRepository.findById(id);
-        jogoRepository.deleteById(id);
-        return jogo;
+    public ResponseEntity<?> excluirJogo(@PathVariable Integer id) {
+        jogoService.excluirJogo(id);
+        return ResponseEntity.status(204).build();
     }
 
 }
